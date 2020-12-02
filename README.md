@@ -1,4 +1,4 @@
-# spicy boiz - rareBnB
+# Herkshire Bathaway Timeshare - Reviews Service
 
 > Project description
 
