@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const path = require('path');
 const listingController = require('../db/controllers/listing.js');
-const reviewController = require('../db/controllers/review.js');
 
 mongoose.set('useCreateIndex', true);
 const port = 3003;
@@ -21,16 +20,16 @@ app.use('/:id', express.static(path.join(__dirname, '/../client/dist')));
 app.get('/api/review-listings/reviews', listingController.getListings);
 
 // get a specific listing
-app.get('/api/review-listings/:id/reviews', listingController.getOneListing);
+app.get('/api/review-listings/:listing_id/reviews', listingController.getOneListing);
 
 // create a review
-app.post('/api/review-listings/:id/reviews', reviewController.insertOne);
+app.post('/api/review-listings/:listing_id/reviews', listingController.insertOneReview);
 
 // update a review
-app.put('/api/review-listings/:listing_id/:review_id/reviews', reviewController.update);
+// app.put('/api/review-listings/:listing_id/:review_id/reviews', reviewController.update);
 
 // delete a review
-app.delete('/api/review-listings/:listing_id/:review_id/reviews', reviewController.delete);
+// app.delete('/api/review-listings/:listing_id/:review_id/reviews', reviewController.delete);
 
 app.listen(port, () => (
   console.log(`listening on port ${port}`)

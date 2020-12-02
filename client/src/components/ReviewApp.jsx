@@ -20,7 +20,7 @@ const ReviewApp = () => {
   if (!doneLoading) {
     axios.get(`/api/review-listings/${listingID}/reviews`)
       .then((res) => {
-        setReviewData(dateSort(res.data[0].reviews));
+        setReviewData(dateSort(res.data.reviews));
       })
       .catch((err) => console.log(err));
     setDoneLoading(true);
