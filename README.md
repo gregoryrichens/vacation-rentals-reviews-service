@@ -25,7 +25,7 @@
 
 This reviews service utilizes a RESTful API architecture to retrieve and modify database-hosted, site-critical information. Syntax and routes conform to common sense REST standards.
 
-##### Creating_Reviews
+#### Creating_Reviews
 
 > POST: '/api/review-listings/:id/reviews'
 
@@ -33,7 +33,7 @@ Used to append a review to an existing listing.
 
 Given a listing id, and the content of a review in the POST body, this path will add a new review with the specified content, to a particular listing.
 
-##### Reading_Listings
+#### Reading_Listings
 
 > GET: '/api/review-listings/reviews'
 
@@ -47,7 +47,7 @@ Used to retrieve a single listing by its id number.
 
 Given a listing id, this call will return a listing with an array of its associated reviews, and minor supplemental information.
 
-##### Updating_Reviews
+#### Updating_Reviews
 
 > PUT: '/api/review-listings/:listing_id/:review_id/reviews'
 
@@ -55,7 +55,7 @@ Used to update a review for a particular listing.
 
 Given a specific review, this route will update said review with information as included in the request body.
 
-##### Deleting_Reviews
+#### Deleting_Reviews
 
 > DELETE: '/api/review-listings/:listing_id/:review_id/reviews'
 
