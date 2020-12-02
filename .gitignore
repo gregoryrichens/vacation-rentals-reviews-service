@@ -22,8 +22,10 @@ coverage
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
-dist/
 
 ##Keyfiles
 *.pem
 *.sh
+
+bundle.js
+package.json

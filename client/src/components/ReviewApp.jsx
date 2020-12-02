@@ -12,12 +12,13 @@ const ReviewApp = () => {
   const [doneLoading, setDoneLoading] = useState(false);
   const { isShowing, toggle } = useModal();
   const id = window.location.pathname.split('/')[1];
+  const listingID = Number(id) || 21;
 
   const dateSort = (d) => d.slice()
     .sort((a, b) => new Date(b.review.date) - new Date(a.review.date));
 
   if (!doneLoading) {
-    axios.get(`/api/review-listings/${id}/reviews`)
+    axios.get(`/api/review-listings/${listingID}/reviews`)
       .then((res) => {
         setReviewData(dateSort(res.data[0].reviews));
       })

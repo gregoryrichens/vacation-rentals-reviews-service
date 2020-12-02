@@ -9,10 +9,11 @@ const port = 3003;
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/FEC', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/reviewsService', { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(morgan('dev'));
 app.use(express.json());
+app.use('/', express.static(path.join(__dirname, '/../client/dist')));
 app.use('/:id', express.static(path.join(__dirname, '/../client/dist')));
 
 // get all listings

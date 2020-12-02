@@ -6,7 +6,7 @@ const data = require('./reviewData');
 const Review = require('./db/models/review');
 const Listing = require('./db/models/listing');
 
-mongoose.connect('mongodb://localhost:27017/FEC',
+mongoose.connect('mongodb://localhost/reviewsService',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
