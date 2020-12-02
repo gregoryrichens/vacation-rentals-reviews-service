@@ -4,10 +4,9 @@
 
 ## Related Projects
 
-  - https://github.com/spicy-boiz/photo-carousel-service
-  - https://github.com/spicy-boiz/reservations-service
-  - https://github.com/spicy-boiz/places-to-stay-service
-  - https://github.com/spicy-boiz/reviews-service
+  - https://github.com/6-BTDF/reservations-service
+  - https://github.com/6-BTDF/ImageCarousel-Service
+  - https://github.com/6-BTDF/more-places-service
 
 ## Table of Contents
 
