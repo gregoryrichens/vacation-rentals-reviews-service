@@ -28,6 +28,7 @@ This reviews service utilizes a RESTful API architecture to retrieve and modify 
 ##### Creating_Reviews
 
 > POST: '/api/review-listings/:id/reviews'
+
 Used to append a review to an existing listing.
 
 Given a listing id, and the content of a review in the POST body, this path will add a new review with the specified content, to a particular listing.
@@ -35,11 +36,13 @@ Given a listing id, and the content of a review in the POST body, this path will
 ##### Reading_Listings
 
 > GET: '/api/review-listings/reviews'
+
 Used to retrieve all listings
 
 *CAUTION* depending on database size, this can be a resource intensive request. As such, it should be used only when absolutely necessary. Try using below requests as alternatives first.
 
 > GET: '/api/review-listings/:id/reviews'
+
 Used to retrieve a single listing by its id number.
 
 Given a listing id, this call will return a listing with an array of its associated reviews, and minor supplemental information.
@@ -47,6 +50,7 @@ Given a listing id, this call will return a listing with an array of its associa
 ##### Updating_Reviews
 
 > PUT: '/api/review-listings/:listing_id/:review_id/reviews'
+
 Used to update a review for a particular listing.
 
 Given a specific review, this route will update said review with information as included in the request body.
@@ -54,6 +58,7 @@ Given a specific review, this route will update said review with information as 
 ##### Deleting_Reviews
 
 > DELETE: '/api/review-listings/:listing_id/:review_id/reviews'
+
 Used to delete a review for a particular listing.
 
 Given a specific listing and review, this will delete the review in question.
