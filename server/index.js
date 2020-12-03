@@ -5,6 +5,7 @@ const path = require('path');
 const listingController = require('../db/controllers/listing.js');
 
 mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false);
 const port = 3003;
 
 const app = express();
@@ -26,7 +27,7 @@ app.get('/api/review-listings/:listing_id/reviews', listingController.getOneList
 app.post('/api/review-listings/:listing_id/reviews', listingController.insertOneReview);
 
 // update a review
-// app.put('/api/review-listings/:listing_id/:review_id/reviews', reviewController.update);
+app.patch('/api/review-listings/:listing_id/:review_id/reviews', listingController.updateOneReview);
 
 // delete a review
 // app.delete('/api/review-listings/:listing_id/:review_id/reviews', reviewController.delete);
