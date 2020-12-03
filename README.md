@@ -38,7 +38,7 @@ Used to retrieve all **listings**
 
 *CAUTION* depending on database size, this can be a resource intensive request. As such, it should be used only when absolutely necessary. Try using below requests as alternatives first.
 
-> GET: '/api/review-listings/:id/reviews'
+> GET: '/api/review-listings/:listing_id/reviews'
 
 Used to retrieve a single **listing** by its id number.
 
@@ -52,12 +52,12 @@ Used to update a **review** for a particular listing.
 
 Given a specific review, this route will update said review with information as included in the request body.
 
-### Deleting_Reviews
+### Deleting_Listing
 
-> DELETE: '/api/review-listings/:listing_id/:review_id/reviews'
+> DELETE: '/api/review-listings/:listing_id/reviews'
 
-Used to delete a **review** for a particular listing.
+Used to delete a **listing**.
 
-Given a specific listing and review, this will delete the review in question.
+Given a specific listing, this will delete the listing in question.
 
 
