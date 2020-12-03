@@ -19,19 +19,19 @@ app.use('/', express.static(path.join(__dirname, '/../client/dist')));
 app.use('/:id', express.static(path.join(__dirname, '/../client/dist')));
 
 // get all listings
-app.get('/api/review-listings/reviews', listingController.getListings);
+app.get('/api/listings/reviews', listingController.getListings);
 
 // get a specific listing
-app.get('/api/review-listings/:listing_id/reviews', listingController.getOneListing);
+app.get('/api/listings/:listing_id/reviews', listingController.getOneListing);
 
 // create a review
-app.post('/api/review-listings/:listing_id/reviews', listingController.insertOneReview);
+app.post('/api/listings/:listing_id/reviews', listingController.insertOneReview);
 
 // update a review
-app.patch('/api/review-listings/:listing_id/:review_id/reviews', listingController.updateOneReview);
+app.patch('/api/listings/:listing_id/:review_id/reviews', listingController.updateOneReview);
 
 // delete a review
-app.delete('/api/review-listings/:listing_id/reviews', listingController.deleteOneListing);
+app.delete('/api/listings/:listing_id/reviews', listingController.deleteOneListing);
 
 app.listen(port, () => (
   console.log(`listening on port ${port}`)
