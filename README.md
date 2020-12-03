@@ -29,9 +29,11 @@ This reviews service utilizes a RESTful API architecture to retrieve and modify 
 Used to create a new listing.
 
 INPUT: none, id determined and template rendered server-side
+
 STATUS CODES:
 - (201) on a successful request
 - (400) on an unsuccessful request
+
 RESPONSE FORMAT: the id of the created listing OR err message stringified
 **JSON**
 > {"id" : Number}
@@ -58,9 +60,11 @@ INPUT:
 >  "location" : Number,
 >  "value" : Number,
 >}
+
 STATUS CODES:
 - (201) on a successful request
 - (404) on an unsuccessful request
+
 RESPONSE FORMAT: the id of the created listing OR err message stringified
 **JSON**
 > {"id" : Number}
@@ -72,10 +76,12 @@ RESPONSE FORMAT: the id of the created listing OR err message stringified
 Used to retrieve all **listings**
 
 INPUT: *n/a*
+
 STATUS CODES:
 - (200) on a successful request
 - (404) on an unsuccessful request
 - (408) on timeout
+
 RESPONSE FORMAT: an array of listing objects
 **JSON**
 >[
@@ -91,9 +97,11 @@ Used to retrieve a single **listing** by its id number.
 Given a listing id, this call will return a listing with an array of its associated reviews, and minor supplemental information.
 
 INPUT: listing_id, stored as a parameter in the url (see code snippet above)
+
 STATUS CODES:
 - (200) on a successful request
 - (404) on an unsuccessful request
+
 RESPONSE FORMAT: a single JSON object in the format
 **JSON**
 >[
@@ -112,9 +120,11 @@ Used to retrieve a single **review** by its id number.
 Given a review id, this call will return a review with its associated data.
 
 INPUT: review_id, stored as a parameter in the url (see code snippet above)
+
 STATUS CODES:
 - (200) on a successful request
 - (404) on an unsuccessful request
+
 RESPONSE FORMAT: a single JSON object in the format
 **JSON**
 >{
@@ -155,9 +165,11 @@ INPUT:
 >  "location" : Number,
 >  "value" : Number,
 >}
+
 STATUS CODES:
 - (201) on a successful request
 - (404) on an unsuccessful request
+
 RESPONSE FORMAT: a single JSON object in the format
 **JSON**
 >{
@@ -183,9 +195,11 @@ Used to delete a **listing**.
 Given a specific listing, this will delete the listing in question.
 
 INPUT: listing_id stored as a parameter in the url
+
 STATUS CODES:
 - (200) on a successful request
 - (400) on an unsuccessful request
+
 RESPONSE FORMAT: status code and stringified error if any
 
 ### Deleting_Review
@@ -197,7 +211,9 @@ Used to delete a **review**.
 Given a specific review, this will delete the review in question.
 
 INPUT: review_id stored as a parameter in the url
+
 STATUS CODES:
 - (200) on a successful request
 - (400) on an unsuccessful request
+
 RESPONSE FORMAT: status code and stringified error if any
