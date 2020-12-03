@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
@@ -30,7 +31,7 @@ app.post('/api/review-listings/:listing_id/reviews', listingController.insertOne
 app.patch('/api/review-listings/:listing_id/:review_id/reviews', listingController.updateOneReview);
 
 // delete a review
-// app.delete('/api/review-listings/:listing_id/:review_id/reviews', reviewController.delete);
+app.delete('/api/review-listings/:listing_id/reviews', listingController.deleteOneListing);
 
 app.listen(port, () => (
   console.log(`listening on port ${port}`)

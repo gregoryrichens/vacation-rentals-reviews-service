@@ -1,4 +1,11 @@
-const { ListingModel, findOne, findAll } = require('../models/listing.js');
+/* eslint-disable no-console */
+/* eslint-disable consistent-return */
+const {
+  ListingModel,
+  findOne,
+  findAll,
+  deleteOne,
+} = require('../models/listing.js');
 const Review = require('../models/review.js');
 // import Review
 
@@ -76,5 +83,17 @@ module.exports = {
     } else {
       res.status(404).send('no review by that id');
     }
+  },
+  deleteOneListing: (req, res) => {
+    const reqId = req.params.listing_id;
+    deleteOne(reqId, (err) => {
+      if (err) {
+        console.log(err);
+        res.sendStatus(400);
+      } else {
+        console.log('response deleted');
+        res.status(200).send('response deleted');
+      }
+    });
   },
 };
