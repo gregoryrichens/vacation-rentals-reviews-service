@@ -12,8 +12,19 @@ function findAll(callback) {
 }
 
 function findOne(id, callback) {
-  ListingModel.find({ id }, callback);
+  ListingModel.findOne({ id }, callback);
 }
 
+function deleteOne(id, callback) {
+  ListingModel.deleteOne({ id }, callback);
+}
+
+// create an update function
+
 // module.exports = insert;
-module.exports = { findAll, findOne, ListingModel };
+module.exports = {
+  findAll,
+  findOne,
+  ListingModel,
+  deleteOne,
+};
