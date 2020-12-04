@@ -12,20 +12,6 @@ CREATE TYPE reviewsDB.ratings (
   value tinyint,
 );
 
-# all listings - mostly useless
-CREATE TABLE reviewsDB.listings (
-  listing_id int,
-  name text,
-);
-
-CREATE TABLE reviewsDB.reviews (
-  review_id int PRIMARY KEY,
-  listing_id int,
-  text text,
-  date date,
-  ratings frozen<ratings>,
-);
-
 # reviews by listing
 CREATE TABLE reviewsDB.reviews_by_listing (
   listing_id int,
@@ -69,3 +55,16 @@ CREATE TABLE reviewsDB.reviews_by_user (
   # we can ignore complexity by handling listing_id
   # and user_id randomly with our seeding script
   # assume we just have access to this on the front end
+  -- CREATE TABLE reviewsDB.reviews (
+  --   review_id int PRIMARY KEY,
+  --   listing_id int,
+  --   text text,
+  --   date date,
+  --   ratings frozen<ratings>,
+  -- );
+
+  -- # all listings - mostly useless
+  -- CREATE TABLE reviewsDB.listings (
+  --   listing_id int,
+  --   name text,
+  -- );
