@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS reviewsDB;
+
+CREATE DATABASE reviewsDB;
+
 DROP TABLE IF EXISTS reviews;
 
 CREATE TABLE reviews (
