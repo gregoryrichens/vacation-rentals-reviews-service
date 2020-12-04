@@ -22,22 +22,6 @@
 
 This reviews service utilizes a RESTful API architecture to retrieve and modify database-hosted, site-critical information. Syntax and routes conform to common sense REST standards.
 
-### Creating_Listings
-
-> POST: '/api/listings/'
-
-Used to create a new listing.
-
-INPUT: none, id determined and template rendered server-side
-
-STATUS CODES:
-- (201) on a successful request
-- (400) on an unsuccessful request
-
-RESPONSE FORMAT: the id of the created listing OR err message stringified
-**JSON**
-> {"id" : Number}
-
 ### Creating_Reviews
 
 > POST: '/api/listings/:listing_id/review'
@@ -50,6 +34,7 @@ INPUT:
 - listing_id, stored as a parameter in the url (see code snippet above)
 - review stored as JSON in the request body in the format
 >{
+>  "listing_id" : Number,
 >  "user_id" : Number,
 >  "username" : String,
 >  "name" : String,
@@ -73,32 +58,11 @@ RESPONSE FORMAT: the id of the created listing OR err message stringified
 **JSON**
 > {"id" : Number}
 
-### Reading_Listings
-
-> GET: '/api/listings/'
-
-Used to retrieve all **listings**
-
-INPUT: *n/a*
-
-STATUS CODES:
-- (200) on a successful request
-- (404) on an unsuccessful request
-- (408) on timeout
-
-RESPONSE FORMAT: an array of listing objects
-**JSON**
->[
->  {
->    "id" : Number,
->  },
->]
-
-### Reading_Listing_By_ID
+### Reading_Reviews_By_Listing
 
 > GET: '/api/listings/:listing_id/'
 
-Used to retrieve a single **listing** by its id number.
+Used to retrieve all **reviews** by a single listing id.
 
 Given a listing id, this call will return a listing with an array of its associated reviews, and minor supplemental information.
 
@@ -113,13 +77,24 @@ RESPONSE FORMAT: a single JSON object in the format
 >[
 >  {
 >    "id" : Number,
->  }
+>    "listing_id" : Number,
+>    "user_id" : Number,
+>    "text" : String,
+>    "date" : String,
+>    "cleanliness :" Number,
+>    "communication" : Number,
+>    "check_in" : Number,
+>    "accuracy" : Number,
+>    "location" : Number,
+>    "value" : Number,
+>  },
+>  ...
 >]
 
 
 ### Reading_Reviews_By_ID
 
-> GET: '/api/reviews/:review_id/'
+> GET: '/api/listings/:listing_id/reviews/:review_id/'
 
 Used to retrieve a single **review** by its id number.
 
@@ -197,22 +172,6 @@ RESPONSE FORMAT: a single JSON object in the format
 >  "location" : Number,
 >  "value" : Number,
 >}
-
-### Deleting_Listing
-
-> DELETE: '/api/listings/:listing_id/'
-
-Used to delete a **listing**.
-
-Given a specific listing, this will delete the listing in question.
-
-INPUT: listing_id stored as a parameter in the url
-
-STATUS CODES:
-- (200) on a successful request
-- (400) on an unsuccessful request
-
-RESPONSE FORMAT: status code and stringified error if any
 
 ### Deleting_Review
 
