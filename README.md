@@ -51,6 +51,10 @@ INPUT:
 - review stored as JSON in the request body in the format
 >{
 >  "user_id" : Number,
+>  "username" : String,
+>  "name" : String,
+>  "email" : String,
+>  "avatar_url" : String,
 >  "text" : String,
 >  "date" : String,
 >  "cleanliness" : Number,
@@ -90,6 +94,8 @@ RESPONSE FORMAT: an array of listing objects
 >  },
 >]
 
+### Reading_Listing_By_ID
+
 > GET: '/api/listings/:listing_id/'
 
 Used to retrieve a single **listing** by its id number.
@@ -111,7 +117,7 @@ RESPONSE FORMAT: a single JSON object in the format
 >]
 
 
-### Reading_Reviews
+### Reading_Reviews_By_ID
 
 > GET: '/api/reviews/:review_id/'
 
@@ -143,22 +149,25 @@ RESPONSE FORMAT: a single JSON object in the format
 
 ### Updating_Reviews
 
-> PUT: '/api/reviews/:review_id/'
+> PUT: '/api/listings/:listing_id/reviews/:review_id/'
 
 Used to update a **review** for a particular listing.
 
-Given a specific review, this route will update said review with information as included in the request body.
+Given a specific listing and review, this route will update said review with information as included in the request body.
 
 INPUT:
-- review_id, stored as a parameter in the url (see code snippet above)
+- listing_id & review_id, stored as a parameter in the url (see code snippet above)
 - review info stored in the request body
 **JSON**
 >{
->  "listing_id" : Number,
 >  "user_id" : Number,
+>  "username" : String,
+>  "name" : String,
+>  "email" : String,
+>  "avatar_url" : String,
 >  "text" : String,
 >  "date" : String,
->  "cleanliness :" Number,
+>  "cleanliness" : Number,
 >  "communication" : Number,
 >  "check_in" : Number,
 >  "accuracy" : Number,
@@ -173,12 +182,15 @@ STATUS CODES:
 RESPONSE FORMAT: a single JSON object in the format
 **JSON**
 >{
->  "id" : Number,
->  "listing_id" : Number,
+>  "reivew_id": String,
 >  "user_id" : Number,
+>  "username" : String,
+>  "name" : String,
+>  "email" : String,
+>  "avatar_url" : String,
 >  "text" : String,
 >  "date" : String,
->  "cleanliness :" Number,
+>  "cleanliness" : Number,
 >  "communication" : Number,
 >  "check_in" : Number,
 >  "accuracy" : Number,
@@ -204,7 +216,7 @@ RESPONSE FORMAT: status code and stringified error if any
 
 ### Deleting_Review
 
-> DELETE: '/api/reviews/:review_id/'
+> DELETE: '/api/listings/:listing_id/reviews/:review_id/'
 
 Used to delete a **review**.
 
