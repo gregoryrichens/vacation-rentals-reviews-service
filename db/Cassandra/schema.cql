@@ -19,7 +19,7 @@ CREATE TABLE reviewsDB.listings (
 );
 
 CREATE TABLE reviewsDB.reviews (
-  review_id UUID PRIMARY KEY,
+  review_id int PRIMARY KEY,
   listing_id int,
   text text,
   date date,
@@ -29,7 +29,7 @@ CREATE TABLE reviewsDB.reviews (
 # reviews by listing
 CREATE TABLE reviewsDB.reviews_by_listing (
   listing_id int,
-  review_id UUID,
+  review_id int,
   user_id int,
   username text,
   name text,
@@ -54,7 +54,7 @@ CREATE TABLE reviewsDB.users (
 # reviews by user
 CREATE TABLE reviewsDB.reviews_by_user (
   user_id int,
-  review_id UUID,
+  review_id int,
   listing_id int,
   username text,
   name text,
