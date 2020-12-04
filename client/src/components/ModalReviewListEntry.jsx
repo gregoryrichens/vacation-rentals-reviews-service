@@ -61,6 +61,7 @@ const ReviewListEntry = (props) => {
     line-height: 24px;
   `;
 
+  // eslint-disable-next-line consistent-return
   const highlight = (reviewText) => {
     if (searchTerm.length > 0) {
       const newReviews = [];
@@ -69,6 +70,7 @@ const ReviewListEntry = (props) => {
       for (let i = 0; i < split.length; i += 1) {
         const query = split[i].replace('.', '');
         if (query.toLowerCase() !== searchTerm.toLowerCase()) {
+          // eslint-disable-next-line prefer-template
           tempString += split[i] + ' ';
         } else {
           newReviews.push(tempString);
