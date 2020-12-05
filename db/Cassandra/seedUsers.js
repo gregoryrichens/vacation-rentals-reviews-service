@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable camelcase */
 /* eslint-disable no-await-in-loop */
 const fs = require('fs');
@@ -5,25 +6,26 @@ const faker = require('faker');
 const path = require('path');
 
 const writeUsers = fs.createWriteStream(path.join(__dirname, '/dataHolder/users.csv'));
+writeUsers.write('user_id,username,name,email,avatar_url\n');
 
-async function seedUsers(numRecords) {
-  const numUsers = numRecords;
+function seedUsers(numRecords) {
+  let userID = 1;
 
-  for (let i = 1; i < numUsers; i += 1) {
-    const id = i;
+  function recursiveWrite() {
+    if (userID === numRecords + 1) return writeUsers.end();
+    const id = userID;
     const username = faker.internet.userName();
     const name = faker.name.firstName();
     const email = faker.internet.email();
-    const genNewPic = () => (`https://randomuser.me/api/portraits/${i % 2}/${i % 100}.jpg`);
+    const genNewPic = () => (`https://randomuser.me/api/portraits/${userID % 2}/${userID % 100}.jpg`);
     const avatarUrl = genNewPic();
-    try {
-      await writeUsers.write(`${id},${username},${name},${email},${avatarUrl}\n`);
-    } catch (err) {
-      console.log(err);
-    }
+    const andyAreYouOk = writeUsers.write(`${id},${username},${name},${email},${avatarUrl}\n`);
+    userID += 1;
+    if (!andyAreYouOk) writeUsers.once('drain', recursiveWrite);
+    else recursiveWrite();
   }
 
-  writeUsers.end();
+  recursiveWrite(numRecords);
 }
 
 seedUsers(100);

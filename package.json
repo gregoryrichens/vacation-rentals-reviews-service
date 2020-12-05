@@ -13,7 +13,8 @@
     "start": "nodemon server/index.js",
     "react-dev": "webpack",
     "test": "jest",
-    "seed-users-cassandra": "node db/Cassandra/seedUsers.js"
+    "seed-users-cassandra": "node db/Cassandra/seedUsers.js",
+    "seed-reviews-cassandra": "node db/Cassandra/seedReviews.js"
   },
   "dependencies": {
     "axios": "^0.21.0",
