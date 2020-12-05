@@ -28,3 +28,5 @@ build/
 *.sh
 
 bundle.js
+
+db/Cassandra/dataHolder/

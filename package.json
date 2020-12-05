@@ -12,7 +12,8 @@
     "seed": "node seed.js",
     "start": "nodemon server/index.js",
     "react-dev": "webpack",
-    "test": "jest"
+    "test": "jest",
+    "seed-users-cassandra": "node db/Cassandra/seedUsers.js"
   },
   "dependencies": {
     "axios": "^0.21.0",
