@@ -28,4 +28,4 @@ function seedUsers(numRecords) {
   recursiveWrite(numRecords);
 }
 
-seedUsers(100);
+seedUsers(10000000);

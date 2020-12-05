@@ -44,4 +44,4 @@ function generateReviews(numRecords) {
   recursiveWrite();
 }
 
-generateReviews(1000);
+generateReviews(100000000);
