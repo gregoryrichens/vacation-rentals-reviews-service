@@ -16,7 +16,8 @@
     "seed-users-cassandra": "node db/Cassandra/seedUsers.js",
     "seed-reviews-cassandra": "node db/Cassandra/seedReviews.js",
     "seed-listings-postgres": "node db/PostgreSQL/seedListings.js",
-    "seed-reviews-postgres": "node db/PostgreSQL/seedReviews.js"
+    "seed-reviews-postgres": "node db/PostgreSQL/seedReviews.js",
+    "seed-test": "node db/Cassandra/seedTest.js"
   },
   "dependencies": {
     "axios": "^0.21.0",
