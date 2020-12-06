@@ -6,9 +6,9 @@ const faker = require('faker');
 const path = require('path');
 
 const writeUsers = fs.createWriteStream(path.join(__dirname, '/dataHolder/users.csv'));
-writeUsers.write('user_id,username,name,email,avatar_url\n');
+writeUsers.write('user_id,avatar_url,email,name,username\n');
 
-function seedUsers(numRecords) {
+function generateUsers(numRecords) {
   let userID = 1;
 
   function recursiveWrite() {
@@ -19,7 +19,7 @@ function seedUsers(numRecords) {
     const email = faker.internet.email();
     const genNewPic = () => (`https://randomuser.me/api/portraits/${userID % 2}/${userID % 100}.jpg`);
     const avatarUrl = genNewPic();
-    const andyAreYouOk = writeUsers.write(`${id},${username},${name},${email},${avatarUrl}\n`);
+    const andyAreYouOk = writeUsers.write(`${id},${avatarUrl},${email},${name},${username}\n`);
     userID += 1;
     if (!andyAreYouOk) writeUsers.once('drain', recursiveWrite);
     else recursiveWrite();
@@ -28,4 +28,6 @@ function seedUsers(numRecords) {
   recursiveWrite(numRecords);
 }
 
-seedUsers(1000);
+generateUsers(1000);
+
+module.exports.generateUsers = generateUsers;

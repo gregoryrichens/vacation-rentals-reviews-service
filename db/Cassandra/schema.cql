@@ -1,54 +1,54 @@
-CREATE KEYSPACE ReviewsDB WITH replication = {
+CREATE KEYSPACE ReviewsDBtest WITH replication = {
   'class':'SimpleStrategy',
   'replication_factor':3
 };
 
 CREATE TYPE reviewsDB.ratings (
+  accuracy tinyint,
+  check_in tinyint,
   cleanliness tinyint,
   communication tinyint,
-  check_in tinyint,
-  accuracy tinyint,
   location tinyint,
   value tinyint,
 );
 
 # reviews by listing
 CREATE TABLE reviewsDB.reviews_by_listing (
+  avatar_url text,
+  date text,
+  email text,
   listing_id int,
+  name text,
+  ratings frozen<ratings>,
   review_id int,
+  text text,
   user_id int,
   username text,
-  name text,
-  email text,
-  avatar_url text,
-  text text,
-  date date,
-  ratings frozen<ratings>,
-  PRIMARY KEY (listing_id, date) )
+  PRIMARY KEY (listing_id, review_id) )
   WITH comment = 'used to find all reviews for a given listing, ordered by date';
 
 # unneccessary for front end, but may implement
 CREATE TABLE reviewsDB.users (
+  avatar_url text,
+  email text,
+  name text,
   user_id int,
   username text,
-  name text,
-  email text,
-  avatar_url text,
   PRIMARY KEY (user_id)
 );
 
 # reviews by user
 CREATE TABLE reviewsDB.reviews_by_user (
-  user_id int,
-  review_id int,
-  listing_id int,
-  username text,
-  name text,
-  email text,
   avatar_url text,
-  text text,
   date date,
+  email text,
+  listing_id int,
+  name text,
   ratings frozen<ratings>,
+  review_id int,
+  text text,
+  user_id int,
+  username text,
   PRIMARY KEY (user_id, date) )
   WITH comment = 'used to find all reviews for a given user, ordered by date';
 

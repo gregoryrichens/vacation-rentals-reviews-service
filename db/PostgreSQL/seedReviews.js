@@ -9,7 +9,7 @@ const writeReviews = fs.createWriteStream(path.join(__dirname, '/dataHolder/revi
 writeReviews.write('review_id,user_id,listing_id,text,date,cleanliness,communication,check_in,accuracy,location,value\n');
 
 const getRandom = function makeRandomNumber(min, max) {
-  return Math.floor(Math.random() * max) + min;
+  return Math.ceil(Math.random() * (max - min)) + min;
 };
 
 // generate reviews/users by listing
