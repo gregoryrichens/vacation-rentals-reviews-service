@@ -6,7 +6,7 @@ const faker = require('faker');
 const path = require('path');
 
 const writeReviews = fs.createWriteStream(path.join(__dirname, '/dataHolder/reviews.csv'));
-writeReviews.write('review_id,user_id,listing_id,text,date,cleanliness,communication,check_in,accuracy,location,value\n');
+writeReviews.write('review_id,user_id,listing_id,accuracy,check_in,cleanliness,communication,date,text,location,value\n');
 
 const getRandom = function makeRandomNumber(min, max) {
   return Math.ceil(Math.random() * (max - min)) + min;
@@ -24,14 +24,14 @@ function generateReviews(numRecords) {
     const userID = getRandom(1, numUsers);
     const listingID = getRandom(1, numListings);
     const text = faker.lorem.sentences();
-    const date = `${faker.date.between('2015-01-01', '2020-12-31')}`;
+    const date = `${faker.date.month()} ${getRandom(2015, 2020)}`;
     const cleanliness = getRandom(1, 5);
     const communication = getRandom(1, 5);
     const check_in = getRandom(1, 5);
     const accuracy = getRandom(1, 5);
     const location = getRandom(1, 5);
     const value = getRandom(1, 5);
-    const areYouOkayAndy = writeReviews.write(`${id},${userID},${listingID},${text},${date},${cleanliness},${communication},${check_in},${accuracy},${location},${value}\n`);
+    const areYouOkayAndy = writeReviews.write(`${id},${userID},${listingID},${accuracy},${check_in},${cleanliness},${communication},${date},${location},${text},${value}\n`);
     reviewID += 1;
     if (!areYouOkayAndy) writeReviews.once('drain', recursiveWrite);
     else recursiveWrite();

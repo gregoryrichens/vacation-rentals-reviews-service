@@ -29,7 +29,6 @@ function generateReviews(numRecords) {
     const genNewPic = () => (`https://randomuser.me/api/portraits/${reviewID % 2}/${reviewID % 100}.jpg`);
     const avatarUrl = genNewPic();
     const text = faker.lorem.sentences();
-    const date = `${faker.date.month()} ${getRandom(2015, 2020)}`;
     const cleanliness = getRandom(1, 5);
     const communication = getRandom(1, 5);
     const check_in = getRandom(1, 5);

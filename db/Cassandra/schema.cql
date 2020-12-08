@@ -3,8 +3,6 @@ CREATE KEYSPACE reviewsDB WITH replication = {
   'replication_factor':1
 };
 
-USE reviewsDB;
-
 CREATE TABLE reviewsDB.reviews_by_listing (
   accuracy tinyint,
   avatar_url text,
@@ -21,7 +19,7 @@ CREATE TABLE reviewsDB.reviews_by_listing (
   user_id int,
   username text,
   value tinyint,
-  PRIMARY KEY (listing_id, date) )
+  PRIMARY KEY (listing_id, review_id) )
   WITH comment = 'used to find all reviews for a given listing, ordered by date';
 
 CREATE TABLE reviewsDB.users (
@@ -49,7 +47,7 @@ CREATE TABLE reviewsDB.reviews_by_user (
   user_id int,
   username text,
   value tinyint,
-  PRIMARY KEY (user_id, date) )
+  PRIMARY KEY (user_id, review_id) )
   WITH comment = 'used to find all reviews for a given user, ordered by date';
 
   -- CREATE TABLE reviewsDB.reviews (

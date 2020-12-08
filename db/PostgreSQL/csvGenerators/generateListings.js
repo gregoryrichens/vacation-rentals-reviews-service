@@ -24,4 +24,4 @@ function generateListings(numRecords) {
   recursiveWrite(numRecords);
 }
 
-module.exports.generateListings = generateListings;
+generateListings(1000000);

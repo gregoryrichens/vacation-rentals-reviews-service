@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // const cassandra = require('cassandra-driver');
 
-// const authProvider = new cassandra.auth.PlainTextAuthProvider('mrpoopybutthole', 'mypass');
+// const authProvider = new cassandra.auth.PlainTextAuthProvider('', '');
 
 // const client = new cassandra.Client({
 //   contactPoints: ['127.0.0.1:9042'],

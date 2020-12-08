@@ -29,6 +29,9 @@ build/
 
 bundle.js
 
-seedTest.js
+generateTest.js
 
 dataHolder/
+
+## ENV
+.env
