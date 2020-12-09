@@ -28,6 +28,7 @@ function generateReviews(numRecords) {
     const email = faker.internet.email();
     const genNewPic = () => (`https://randomuser.me/api/portraits/${reviewID % 2}/${reviewID % 100}.jpg`);
     const avatarUrl = genNewPic();
+    const date = `${faker.date.month()} ${getRandom(2015, 2020)}`;
     const text = faker.lorem.sentences();
     const cleanliness = getRandom(1, 5);
     const communication = getRandom(1, 5);
@@ -43,9 +44,6 @@ function generateReviews(numRecords) {
   recursiveWrite();
 }
 
-const start = new Date().getTime();
 generateReviews(100000000);
-const end = new Date().getTime();
-console.log(end - start);
 
 module.exports.generateReviews = generateReviews;
