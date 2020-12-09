@@ -29,4 +29,9 @@ build/
 
 bundle.js
 
+generateTest.js
+
 dataHolder/
+
+## ENV
+.env

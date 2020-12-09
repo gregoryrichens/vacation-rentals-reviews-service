@@ -8,7 +8,7 @@ const path = require('path');
 const writeListings = fs.createWriteStream(path.join(__dirname, '/dataHolder/listings.csv'));
 writeListings.write('listing_id,name\n');
 
-function seedListings(numRecords) {
+function generateListings(numRecords) {
   let listingID = 1;
 
   function recursiveWrite() {
@@ -24,4 +24,4 @@ function seedListings(numRecords) {
   recursiveWrite(numRecords);
 }
 
-seedListings(50);
+generateListings(1000000);

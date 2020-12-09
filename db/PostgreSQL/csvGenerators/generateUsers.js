@@ -8,7 +8,7 @@ const path = require('path');
 const writeUsers = fs.createWriteStream(path.join(__dirname, '/dataHolder/users.csv'));
 writeUsers.write('user_id,username,name,email,avatar_url\n');
 
-function seedUsers(numRecords) {
+function generateUsers(numRecords) {
   let userID = 1;
 
   function recursiveWrite() {
@@ -28,4 +28,4 @@ function seedUsers(numRecords) {
   recursiveWrite(numRecords);
 }
 
-seedUsers(1000);
+generateUsers(10000000);
