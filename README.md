@@ -24,7 +24,7 @@ This reviews service utilizes a RESTful API architecture to retrieve and modify 
 
 ### Creating_Reviews
 
-> POST: '/api/listings/:listing_id/review'
+> POST: '/api/listings/:listing_id/reviews'
 
 Used to create a review which is associated with an existing listing.
 

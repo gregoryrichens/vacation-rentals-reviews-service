@@ -14,13 +14,14 @@ const ReviewApp = () => {
   const id = window.location.pathname.split('/')[1];
   const listingID = Number(id) || 21;
 
-  const dateSort = (d) => d.slice()
-    .sort((a, b) => new Date(b.review.date) - new Date(a.review.date));
+  // const dateSort = (d) => d.slice()
+  //   .sort((a, b) => new Date(b.review.date) - new Date(a.review.date));
 
   if (!doneLoading) {
     axios.get(`/api/listings/${listingID}/reviews`)
       .then((res) => {
-        setReviewData(dateSort(res.data.reviews));
+        console.log(res.data);
+        setReviewData(res.data.rows);
       })
       .catch((err) => console.log(err));
     setDoneLoading(true);
