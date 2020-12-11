@@ -27,19 +27,19 @@ const findAllByListing = async (parameters) => {
 };
 
 const findOne = async (parameters) => {
-  const query = 'SELECT * FROM reviewsdb.reviews_by_listing WHERE review_id = ?;';
-  const result = await client.execute(query, parameters);
+  const query = 'SELECT * FROM reviewsdb.reviews_by_listing WHERE listing_id = ? AND review_id = ? ALLOW FILTERING;';
+  const result = await client.execute(query, parameters, { prepare: true });
   return result;
 };
 
 const updateOne = async (parameters) => {
-  const query = 'UPDATE reviewsdb.reviews_by_listing SET text = ? WHERE review_id = ?;';
-  await client.execute(query, parameters);
+  const query = 'UPDATE reviewsdb.reviews_by_listing SET text = ? WHERE listing_id = ? AND date = ?;';
+  await client.execute(query, parameters, { prepare: true });
 };
 
 const deleteOne = async (parameters) => {
   const query = 'DELETE FROM reviewsdb.reviews_by_listing WHERE review_id = ?';
-  await client.execute(query, parameters);
+  await client.execute(query, parameters, { prepare: true });
 };
 
 module.exports.insertOne = insertOne;

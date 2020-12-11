@@ -37,7 +37,8 @@ module.exports = {
     }
   },
   getOneReview: async (req, res) => {
-    const parameters = [req.params.review_id];
+    const parameters = [req.params.listing_id, req.params.review_id];
+    console.log(parameters);
     try {
       const data = await Reviews.findOne(parameters);
       res.json(data);
@@ -46,7 +47,7 @@ module.exports = {
     }
   },
   updateOneReview: async (req, res) => {
-    const parameters = [req.body.text, req.params.review_id];
+    const parameters = [req.body.text, req.params.listing_id, req.body.date];
     try {
       await Reviews.updateOne(parameters);
       res.status(200).send('review updated');

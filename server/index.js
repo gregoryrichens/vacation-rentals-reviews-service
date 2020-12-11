@@ -27,10 +27,10 @@ app.post('/api/listings/:listing_id/reviews', reviewsController.insertOneReview)
 app.get('/api/listings/:listing_id/reviews', reviewsController.getReviewsByListing);
 
 // get a specfic review
-app.get('/api/reviews/:reivew_id', reviewsController.getOneReview);
+app.get('/api/listings/:listing_id/reviews/:review_id', reviewsController.getOneReview);
 
 // update a review
-app.patch('/api/reviews/:review_id', reviewsController.updateOneReview);
+app.patch('/api/listings/:listing_id/reviews/:review_id', reviewsController.updateOneReview);
 
 // delete a review
 app.delete('/api/reviews/:review_id', reviewsController.deleteOneReview);

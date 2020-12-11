@@ -20,7 +20,7 @@ const ReviewApp = () => {
   if (!doneLoading) {
     axios.get(`/api/listings/${listingID}/reviews`)
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data.rows[21].avatar_url);
         setReviewData(res.data.rows);
       })
       .catch((err) => console.log(err));
