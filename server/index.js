@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const path = require('path');
-const listingController = require('../db/controllers/listing.js');
+const reviewsController = require('../db/controllers/review.js');
 
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
@@ -18,20 +18,22 @@ app.use(express.json());
 app.use('/', express.static(path.join(__dirname, '/../client/dist')));
 app.use('/:id', express.static(path.join(__dirname, '/../client/dist')));
 
-// get all listings
-app.get('/api/listings/reviews', listingController.getListings);
-
-// get a specific listing
-app.get('/api/listings/:listing_id/reviews', listingController.getOneListing);
+// ##### CRUD OPERATIONS #####
 
 // create a review
-app.post('/api/listings/:listing_id/reviews', listingController.insertOneReview);
+app.post('/api/listings/:listing_id/reviews', reviewsController.insertOneReview);
+
+// get all reviews for a particular listing
+app.get('/api/listings/:listing_id/reviews', reviewsController.getReviewsByListing);
+
+// get a specfic review
+app.get('/api/listings/:listing_id/reviews/:review_id', reviewsController.getOneReview);
 
 // update a review
-app.patch('/api/listings/:listing_id/:review_id/reviews', listingController.updateOneReview);
+app.patch('/api/listings/:listing_id/reviews/:review_id', reviewsController.updateOneReview);
 
 // delete a review
-app.delete('/api/listings/:listing_id/reviews', listingController.deleteOneListing);
+app.delete('/api/reviews/:review_id', reviewsController.deleteOneReview);
 
 app.listen(port, () => (
   console.log(`listening on port ${port}`)
