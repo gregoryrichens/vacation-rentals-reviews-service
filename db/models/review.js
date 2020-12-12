@@ -1,6 +1,7 @@
 // const mongoose = require('mongoose');
 require('dotenv').config();
 const cassandra = require('cassandra-driver');
+require('newrelic');
 
 const authProvider = new cassandra.auth.PlainTextAuthProvider(
   process.env.CASSANDRA_USER,
@@ -16,8 +17,8 @@ const client = new cassandra.Client({
 
 const insertOne = async (parameters) => {
   // avoid duplicate review ids??
-  const query = 'INSERT INTO reviewsdb.reviews_by_listing (listing_id,review_id,accuracy,avatar_url,check_in,cleanliness,communication,date,email,location,name,text,user_id,username,value) VALUES  (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);';
-  await client.execute(query, parameters);
+  const query = 'INSERT INTO reviewsdb.reviews_by_listing (listing_id,date,review_id,accuracy,avatar_url,check_in,cleanliness,communication,email,location,name,text,user_id,username,value) VALUES  (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) IF NOT EXISTS;';
+  await client.execute(query, parameters, { prepare: true });
 };
 
 const findAllByListing = async (parameters) => {
@@ -38,7 +39,7 @@ const updateOne = async (parameters) => {
 };
 
 const deleteOne = async (parameters) => {
-  const query = 'DELETE FROM reviewsdb.reviews_by_listing WHERE review_id = ?';
+  const query = 'DELETE FROM reviewsdb.reviews_by_listing WHERE listing_id = ? AND date = ? AND review_id = ?';
   await client.execute(query, parameters, { prepare: true });
 };
 

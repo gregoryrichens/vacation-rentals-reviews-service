@@ -11,7 +11,7 @@ const Ratings = (props) => {
   // function for total average reviews per listing
   const listingTotal = (reviews) => {
     const sum = reviews.reduce((total, current) => {
-      const cr = current.ratings;
+      const cr = current;
       const ratingsTotal = cr.cleanliness
         + cr.communication + cr.check_in
         + cr.accuracy + cr.location
@@ -25,7 +25,7 @@ const Ratings = (props) => {
   // function for each child to calc. metric average
   const metricAverage = (reviews, metric) => {
     const sum = reviews.reduce((total, current) => {
-      const cr = current.ratings;
+      const cr = current;
       return total + cr[metric];
     }, 0);
     return sum / reviews.length;

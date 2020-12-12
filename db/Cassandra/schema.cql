@@ -19,7 +19,7 @@ CREATE TABLE reviewsDB.reviews_by_listing (
   user_id int,
   username text,
   value tinyint,
-  PRIMARY KEY (listing_id, date) )
+  PRIMARY KEY (listing_id, date, review_id) )
   WITH comment = 'used to find all reviews for a given listing, ordered by date';
 
 CREATE TABLE reviewsDB.users (

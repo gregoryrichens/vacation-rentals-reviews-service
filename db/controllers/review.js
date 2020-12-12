@@ -6,13 +6,13 @@ module.exports = {
   insertOneReview: async (req, res) => {
     const parameters = [
       req.params.listing_id,
-      req.body.review_id,
+      req.body.date,
+      req.params.review_id,
       req.body.accuracy,
       req.body.avatar_url,
       req.body.check_in,
       req.body.cleanliness,
       req.body.communication,
-      req.body.date,
       req.body.email,
       req.body.location,
       req.body.name,
@@ -31,17 +31,16 @@ module.exports = {
     const parameters = [req.params.listing_id];
     try {
       const data = await Reviews.findAllByListing(parameters);
-      res.json(data);
+      res.status(200).json(data);
     } catch (err) {
       res.status(404).send(err);
     }
   },
   getOneReview: async (req, res) => {
     const parameters = [req.params.listing_id, req.params.review_id];
-    console.log(parameters);
     try {
       const data = await Reviews.findOne(parameters);
-      res.json(data);
+      res.status(200).json(data);
     } catch (err) {
       res.status(404).send(err);
     }
@@ -56,7 +55,7 @@ module.exports = {
     }
   },
   deleteOneReview: async (req, res) => {
-    const parameters = [req.params.review_id];
+    const parameters = [req.params.listing_id, req.body.date, req.params.review_id];
     try {
       await Reviews.deleteOne(parameters);
       res.status(200).send('review deleted');
