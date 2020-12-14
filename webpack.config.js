@@ -30,5 +30,5 @@ module.exports = {
     extensions: ['.js', '.json', '.jsx', '.css'],
     symlinks: false,
   },
-  watch: true,
+  watch: false,
 };

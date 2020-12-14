@@ -13,7 +13,7 @@
     "start": "nodemon server/index.js",
     "react-dev": "webpack",
     "test": "jest",
-    "docker": "node server/index.js && webpack",
+    "docker": "node server/index.js",
     "generate-users-cassandra": "node db/Cassandra/csvGenerators/generateUsers.js",
     "generate-reviews-cassandra": "node db/Cassandra/csvGenerators/generateReviews.js",
     "generate-listings-postgres": "node db/PostgreSQL/csvGenerators/generateListings.js",

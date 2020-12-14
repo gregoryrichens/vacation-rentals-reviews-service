@@ -9,7 +9,7 @@ const authProvider = new cassandra.auth.PlainTextAuthProvider(
 );
 
 const client = new cassandra.Client({
-  contactPoints: ['127.0.0.1:9042'],
+  contactPoints: ['192.168.0.4:9042'],
   localDataCenter: 'datacenter1',
   authProvider,
   keyspace: 'reviewsdb',
