@@ -20,7 +20,7 @@ CREATE TABLE reviewsDB.reviews_by_listing (
   username text,
   value tinyint,
   PRIMARY KEY (listing_id, date, review_id) )
-  WITH comment = 'used to find all reviews for a given listing, ordered by date';
+  WITH CLUSTERING ORDER BY (date DESC);
 
 CREATE TABLE reviewsDB.users (
   avatar_url text,
