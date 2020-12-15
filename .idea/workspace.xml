@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="119d62ce-3643-4392-ad98-e61cc2600fc4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/Cassandra/schema.cql" beforeDir="false" afterPath="$PROJECT_DIR$/db/Cassandra/schema.cql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +41,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607968901110</updated>
       <workItem from="1607968905399" duration="4991000" />
-      <workItem from="1608002476057" duration="677000" />
+      <workItem from="1608002476057" duration="2014000" />
     </task>
     <servers />
   </component>

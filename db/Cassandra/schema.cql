@@ -1,6 +1,6 @@
 CREATE KEYSPACE reviewsDB WITH replication = {
   'class':'SimpleStrategy',
-  'replication_factor':1
+  'replication_factor':3
 };
 
 CREATE TABLE reviewsDB.reviews_by_listing (
@@ -20,7 +20,8 @@ CREATE TABLE reviewsDB.reviews_by_listing (
   username text,
   value tinyint,
   PRIMARY KEY (listing_id, date, review_id) )
-  WITH CLUSTERING ORDER BY (date DESC);
+  WITH CLUSTERING ORDER BY (date DESC)
+  AND compaction = { 'class' :  'LeveledCompactionStrategy'  };
 
 CREATE TABLE reviewsDB.users (
   avatar_url text,
