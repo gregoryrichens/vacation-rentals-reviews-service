@@ -21,14 +21,14 @@ post video or gif here
 
 ## Table of Contents
 
-- [Available Scripts](#Available Scripts)
+- [Available Scripts](#Available_Scripts)
 - [API Routes](#API_routes)
   - [Create](#Creating_Listings)
   - [Read](#Reading_Listings)
   - [Update](#Updating_Reviews)
   - [Delete](#Deleting_Reviews)
 
-## Available Scripts
+## Available_Scripts
 
 ### `npm start`
 
