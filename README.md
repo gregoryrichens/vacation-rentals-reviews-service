@@ -1,6 +1,17 @@
 # Herkshire Bathaway Timeshare - Reviews Service
 
-> Project description
+## Description
+
+Herkshire Bathaway is an integrated web application that allows users to browse a variety of timeshare and vacation rental listings, accomplishing the following tasks:
+* understand property look and feel via high definition listing photographs
+* check availability and book a reservation
+* deep dive on the ins and outs of listing by perusing trusted reviews of past guests
+* investigate related properties
+
+The reviews service for which this README is written utilizes a CERN stack - Cassandra DB, Express, React, and Node - and is best deployed within an EC2 ecosystem. However, the framework is flexible enough to accomodated different database choices (e.g. Postgres) with minimal configuration changes.
+
+### Site Preview
+post video or gif here
 
 ## Related Projects
 
@@ -10,15 +21,38 @@
 
 ## Table of Contents
 
-- [Usage](#Usage)
+- [Available Scripts](#Available Scripts)
+- [API Routes](#API_routes)
   - [Create](#Creating_Listings)
   - [Read](#Reading_Listings)
   - [Update](#Updating_Reviews)
   - [Delete](#Deleting_Reviews)
 
-## Usage
+## Available Scripts
 
-> Some usage instructions
+### `npm start`
+
+Runs the app in the development mode via node server on local machine.\
+Open [http://localhost:3000](http://localhost:3003) to view it in the browser.
+
+Port 3003 is also the listening port for API requests.
+
+The page will not reload if you make edits.\
+
+### `npm run react-dev`
+
+Builds the app for production to the `client/dist` folder.\
+It correctly bundles React in production mode (configurable within webpack.config.js) and optimizes the build for the best performance.
+
+### `npm run generate-table_name-database_name`
+
+There are several scripts available by default. These scripts will generate csv files of configurable length for the specified table and the specified database. Postgres and Cassandra are available by default. Connections within the server are setup for Cassandra, so minor configuration is required. Csv files are stored in db/db_name/csvGenerators/dataHolder
+
+### other
+
+As listed in package.json
+
+## API_routes
 
 This reviews service utilizes a RESTful API architecture to retrieve and modify database-hosted, site-critical information. Syntax and routes conform to common sense REST standards.
 
