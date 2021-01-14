@@ -11,7 +11,7 @@ Herkshire Bathaway is an integrated web application that allows users to browse 
 The reviews service for which this README is written utilizes a CERN stack - Cassandra DB, Express, React, and Node - and is best deployed within an EC2 ecosystem. However, the framework is flexible enough to accomodated different database choices (e.g. Postgres) with minimal configuration changes.
 
 ### Site Preview
-![](s3://mysdcgarbage/SDC.gif)
+![](client/dist/SDC.gif)
 
 ## Related Projects
 
