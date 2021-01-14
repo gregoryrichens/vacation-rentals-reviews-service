@@ -13,11 +13,11 @@ The reviews service for which this README is written utilizes a CERN stack - Cas
 ### Site Preview
 
 ##### reviews component
-![](client/dist/SDC.gif)
+![](https://mysdcgarbage.s3-us-west-1.amazonaws.com/SDC.gif)
 
 ##### whole site
 ![](https://mysdcgarbage.s3-us-west-1.amazonaws.com/vacation+rental+main.png)
-1[](https://mysdcgarbage.s3-us-west-1.amazonaws.com/vacation+rental+reservation.png)
+![](https://mysdcgarbage.s3-us-west-1.amazonaws.com/vacation+rental+reservation.png)
 
 ## Related Projects
 
